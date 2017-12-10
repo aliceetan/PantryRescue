@@ -11,4 +11,10 @@
         android:orderInCategory="101"
         android:id="@+id/action_about"
         android:icon="@android:drawable/ic_menu_info_details"/>
+
+    <item
+        android:title="Logout"
+        android:orderInCategory="101"
+        android:id="@+id/action_logout"
+        android:icon="@android:drawable/ic_menu_send"/>
 </menu>
