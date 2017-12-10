@@ -45,7 +45,7 @@ public class RecipeNamesActivity extends AppCompatActivity {
 
 
         final RecipeApi foodAPI = retrofit.create(RecipeApi.class);
-        final LinearLayout linearLayout = findViewById(R.id.linearLayout);
+        final LinearLayout linearLayout = findViewById(R.id.namesLinearLayout);
 
         Call<SearchResult> call =
                 foodAPI.getNames(apiid, itemName);

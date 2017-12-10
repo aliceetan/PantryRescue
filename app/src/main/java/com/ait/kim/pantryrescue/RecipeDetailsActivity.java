@@ -6,6 +6,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -13,6 +14,7 @@ import com.ait.kim.pantryrescue.GetData.GetResult;
 import com.ait.kim.pantryrescue.R;
 import com.ait.kim.pantryrescue.SearchData.SearchResult;
 import com.ait.kim.pantryrescue.network.RecipeApi;
+import com.bumptech.glide.Glide;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -41,7 +43,10 @@ public class RecipeDetailsActivity extends AppCompatActivity {
 
         final LinearLayout detailsLayout = findViewById(R.id.detailsLayout);
 
+        final ImageView ivPic = findViewById(R.id.ivPic);
+
         final RecipeApi foodAPI = retrofit.create(RecipeApi.class);
+
 
         Call<GetResult> call = foodAPI.getRecipe(appid, recipeId);
 
@@ -54,6 +59,8 @@ public class RecipeDetailsActivity extends AppCompatActivity {
                         TextView tvIngredient = new TextView(RecipeDetailsActivity.this);
                         tvIngredient.setText(response.body().getRecipe().getIngredients().get(i));
                         ((LinearLayout) detailsLayout).addView(tvIngredient);
+                        String imgUrl = response.body().getRecipe().getImageUrl();
+                        Glide.with(RecipeDetailsActivity.this).load(imgUrl).into(ivPic);
                     }
                 }
 
