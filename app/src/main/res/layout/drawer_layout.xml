@@ -13,7 +13,7 @@
 
     <TextView
         android:text="Welcome to PantryRescue!"
-android:textAlignment="textEnd"
+        android:textAlignment="textEnd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"

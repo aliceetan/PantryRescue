@@ -8,7 +8,8 @@
         android:id="@+id/detailsLayout"
         android:layout_height= "match_parent"
         android:layout_width = "match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding = "15dp">
 
         <ImageView
             android:id="@+id/ivPic"
@@ -37,7 +38,6 @@
             android:fontFamily="monospace"
             android:text="Ingredients:"
             android:textSize="20dp"/>
-
     </LinearLayout>
 
 </ScrollView>

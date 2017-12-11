@@ -23,6 +23,7 @@ import android.widget.Toast;
 import com.ait.kim.pantryrescue.adapter.ItemRecyclerAdapter;
 import com.ait.kim.pantryrescue.SearchData.Item;
 import com.ait.kim.pantryrescue.touch.ItemTouchHelperCallback;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -30,6 +31,8 @@ import java.util.List;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -60,6 +63,11 @@ public class MainActivity extends AppCompatActivity {
                             case R.id.action_about:
                                 Toast.makeText(MainActivity.this, "Made by Alice, Kim, and Sarah", Toast.LENGTH_SHORT).show();
                                 drawerLayout.closeDrawer(GravityCompat.START);
+                                break;
+                            case R.id.action_logout:
+                                FirebaseAuth.getInstance().signOut();
+                                drawerLayout.closeDrawer(GravityCompat.START);
+                                finish();
                                 break;
 
                         }
@@ -167,13 +175,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void showWeatherActivity(String item) {
+    public void showRecipeActivity(String item) {
         Intent newIntent = new Intent(MainActivity.this, RecipeNamesActivity.class);
         newIntent.putExtra(ITEM_NAME, item);
         newIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(newIntent);
 
+    }
 
+    @Override
+    public void onBackPressed() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
     }
 
 

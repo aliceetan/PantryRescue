@@ -85,7 +85,7 @@ public class ItemRecyclerAdapter extends RecyclerView.Adapter<ItemRecyclerAdapte
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((MainActivity) context).showWeatherActivity(itemData.getItemName());
+                ((MainActivity) context).showRecipeActivity(itemData.getItemName());
             }
         });
 
