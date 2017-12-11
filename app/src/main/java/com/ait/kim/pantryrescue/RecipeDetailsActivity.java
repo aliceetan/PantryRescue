@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -40,6 +41,8 @@ public class RecipeDetailsActivity extends AppCompatActivity {
                 .baseUrl("http://food2fork.com")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
+
+        favButton();
 
 
         recipeId = getIntent().getStringExtra(RecipeNamesActivity.RECIPE_ID);
@@ -88,5 +91,15 @@ public class RecipeDetailsActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void favButton() {
+        Button btnFav = findViewById(R.id.btnFav);
+        btnFav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // create a post item and save it to the discussions post
+            }
+        });
     }
 }

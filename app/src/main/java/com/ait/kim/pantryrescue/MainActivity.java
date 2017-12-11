@@ -62,6 +62,10 @@ public class MainActivity extends AppCompatActivity {
                                 Toast.makeText(MainActivity.this, "Made by Alice, Kim, and Sarah", Toast.LENGTH_SHORT).show();
                                 drawerLayout.closeDrawer(GravityCompat.START);
                                 break;
+                            case R.id.action_view:
+                                showPostActivity();
+                                drawerLayout.closeDrawer(GravityCompat.START);
+                                break;
                             case R.id.action_logout:
                                 FirebaseAuth.getInstance().signOut();
                                 drawerLayout.closeDrawer(GravityCompat.START);
@@ -143,6 +147,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
         builder.show();
+    }
+
+    private void showPostActivity() {
+        Intent newIntent = new Intent(MainActivity.this, PostsActivity.class);
+        startActivity(newIntent);
     }
 
 

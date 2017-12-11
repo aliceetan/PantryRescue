@@ -29,7 +29,7 @@
             android:id="@+id/btnFav"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Save"
+            android:text="Favorite"
             android:fontFamily="monospace"
             android:layout_gravity="right"/>
 
