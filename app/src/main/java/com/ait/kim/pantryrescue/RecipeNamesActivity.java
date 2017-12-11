@@ -1,8 +1,10 @@
 package com.ait.kim.pantryrescue;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -59,7 +61,9 @@ public class RecipeNamesActivity extends AppCompatActivity {
                     int size = response.body().getRecipes().size();
                     for(int i =0; i < size; i ++){
                         TextView recipe = new TextView(RecipeNamesActivity.this);
+                        recipe.setTypeface(Typeface.create("monospace", Typeface.NORMAL));
                         recipe.setText(response.body().getRecipes().get(i).getTitle());
+                        recipe.setGravity(Gravity.CENTER);
                         ((LinearLayout) linearLayout).addView(recipe);
                         final int finalI = i;
                         recipe.setOnClickListener(new View.OnClickListener() {
