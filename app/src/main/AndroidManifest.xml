@@ -24,7 +24,8 @@
             android:name=".RecipeDetailsActivity"
             android:label="@string/title_activity_recipe_details"
             android:theme="@style/AppTheme" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".PostsActivity"></activity>
     </application>
 
 </manifest>
