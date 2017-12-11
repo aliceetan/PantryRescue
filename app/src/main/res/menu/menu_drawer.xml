@@ -2,15 +2,22 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:title="Add ingredients"
-        android:orderInCategory="100"
-        android:id="@+id/action_add"
-        android:icon="@android:drawable/ic_menu_add"/>
-    <item
         android:title="About"
         android:orderInCategory="101"
         android:id="@+id/action_about"
         android:icon="@android:drawable/ic_menu_info_details"/>
+
+    <item
+        android:title="Add ingredients"
+        android:orderInCategory="100"
+        android:id="@+id/action_add"
+        android:icon="@android:drawable/ic_menu_add"/>
+
+    <item
+        android:title="View posts"
+        android:orderInCategory="100"
+        android:id="@+id/action_view"
+        android:icon="@android:drawable/ic_menu_gallery" />
 
     <item
         android:title="Logout"
