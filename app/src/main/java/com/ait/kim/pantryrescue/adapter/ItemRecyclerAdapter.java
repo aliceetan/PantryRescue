@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.ait.kim.pantryrescue.MainActivity;
 import com.ait.kim.pantryrescue.R;
-import com.ait.kim.pantryrescue.SearchData.Item;
+import com.ait.kim.pantryrescue.data.Item;
 import com.ait.kim.pantryrescue.touch.ItemTouchHelperAdapter;
 
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package com.ait.kim.pantryrescue.SearchData;
+package com.ait.kim.pantryrescue.data;
 
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;

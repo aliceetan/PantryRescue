@@ -21,7 +21,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.ait.kim.pantryrescue.adapter.ItemRecyclerAdapter;
-import com.ait.kim.pantryrescue.SearchData.Item;
+import com.ait.kim.pantryrescue.data.Item;
 import com.ait.kim.pantryrescue.touch.ItemTouchHelperCallback;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -31,8 +31,6 @@ import java.util.List;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
-
-import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
 
