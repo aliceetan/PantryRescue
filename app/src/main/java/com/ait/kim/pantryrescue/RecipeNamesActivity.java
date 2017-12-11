@@ -48,7 +48,7 @@ public class RecipeNamesActivity extends AppCompatActivity {
         final LinearLayout linearLayout = findViewById(R.id.namesLinearLayout);
 
         Call<SearchResult> call =
-                foodAPI.getNames(apiid, itemName);
+                foodAPI.getNames(apiid, itemName, "r");
 
         call.enqueue(new Callback<SearchResult>() {
 
