@@ -1,10 +1,13 @@
 package com.ait.kim.pantryrescue;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -43,6 +46,8 @@ public class RecipeDetailsActivity extends AppCompatActivity {
 
         final LinearLayout detailsLayout = findViewById(R.id.detailsLayout);
 
+        final TextView tvTitle = findViewById(R.id.tvTitle);
+
         final ImageView ivPic = findViewById(R.id.ivPic);
 
         final RecipeApi foodAPI = retrofit.create(RecipeApi.class);
@@ -57,10 +62,20 @@ public class RecipeDetailsActivity extends AppCompatActivity {
                     int size = response.body().getRecipe().getIngredients().size();
                     for(int i = 0; i < size; i ++){
                         TextView tvIngredient = new TextView(RecipeDetailsActivity.this);
+                        tvIngredient.setTypeface(Typeface.create("monospace", Typeface.NORMAL));
+                        tvTitle.setText(response.body().getRecipe().getTitle());
                         tvIngredient.setText(response.body().getRecipe().getIngredients().get(i));
                         ((LinearLayout) detailsLayout).addView(tvIngredient);
                         String imgUrl = response.body().getRecipe().getImageUrl();
                         Glide.with(RecipeDetailsActivity.this).load(imgUrl).into(ivPic);
+
+                        TextView tvURL = new TextView(RecipeDetailsActivity.this);
+                        tvURL.setClickable(true);
+                        tvURL.setMovementMethod(LinkMovementMethod.getInstance());
+                        String url = response.body().getRecipe().getSourceUrl();
+
+                        String text = "<a href=" + url + "> here </a>";
+                        tvURL.setText("For more information, click " + Html.fromHtml(text));
                     }
                 }
 
