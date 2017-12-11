@@ -175,7 +175,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void showWeatherActivity(String item) {
+    public void showRecipeActivity(String item) {
         Intent newIntent = new Intent(MainActivity.this, RecipeNamesActivity.class);
         newIntent.putExtra(ITEM_NAME, item);
         newIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
