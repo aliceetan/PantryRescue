@@ -60,7 +60,7 @@ public class RecipeNamesActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(Call<SearchResult> call, final Response<SearchResult> response) {
-                if (response.body().getRecipes() != null) {
+                if (response.body().getCount() >= 5) {
                     int size = response.body().getRecipes().size();
                     for(int i =0; i < size; i ++) {
                         TextView recipe = new TextView(RecipeNamesActivity.this);
@@ -80,8 +80,12 @@ public class RecipeNamesActivity extends AppCompatActivity {
                     }
 
                 } else {
-
+                    TextView error = new TextView(RecipeNamesActivity.this);
+                    error.setTextSize(17);
+                    error.setGravity(Gravity.CENTER);
                     error.setText("Please check formatting / choose different ingredients");
+                    ((LinearLayout) linearLayout).addView(error);
+
                 }
             }
 
