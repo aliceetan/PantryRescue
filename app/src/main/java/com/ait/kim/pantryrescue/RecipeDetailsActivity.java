@@ -1,6 +1,8 @@
 package com.ait.kim.pantryrescue;
 
+import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -10,6 +12,7 @@ import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -53,6 +56,8 @@ public class RecipeDetailsActivity extends AppCompatActivity {
 
         final TextView tvTitle = findViewById(R.id.tvTitle);
 
+        final TextView tvUrl = findViewById(R.id.tvUrl);
+
         final ImageView ivPic = findViewById(R.id.ivPic);
 
         final RecipeApi foodAPI = retrofit.create(RecipeApi.class);
@@ -62,26 +67,47 @@ public class RecipeDetailsActivity extends AppCompatActivity {
 
         call.enqueue(new Callback<GetResult>() {
             @Override
-            public void onResponse(Call<GetResult> call, Response<GetResult> response) {
-                if(response.body() != null){
+            public void onResponse(Call<GetResult> call, final Response<GetResult> response) {
+                if (response.body() != null) {
                     int size = response.body().getRecipe().getIngredients().size();
-                    for(int i = 0; i < size; i ++){
+                    for (int i = 0; i < size; i++) {
                         TextView tvIngredient = new TextView(RecipeDetailsActivity.this);
+                        tvIngredient.setTextSize(16);
                         tvIngredient.setTypeface(Typeface.create("monospace", Typeface.NORMAL));
                         tvTitle.setText(response.body().getRecipe().getTitle());
                         tvIngredient.setText(response.body().getRecipe().getIngredients().get(i));
                         ((LinearLayout) detailsLayout).addView(tvIngredient);
                         String imgUrl = response.body().getRecipe().getImageUrl();
                         Glide.with(RecipeDetailsActivity.this).load(imgUrl).into(ivPic);
+//
+//                        tvUrl.setText(url);
 
-                        TextView tvURL = new TextView(RecipeDetailsActivity.this);
-                        tvURL.setClickable(true);
-                        tvURL.setMovementMethod(LinkMovementMethod.getInstance());
-                        String url = response.body().getRecipe().getSourceUrl();
+                        final String url = response.body().getRecipe().getSourceUrl();
+                        tvUrl.setOnClickListener(new View.OnClickListener(){
+                            @Override
+                            public void onClick(View view) {
+                                //String url = "http://www.stackoverflow.com";
+                                Intent i = new Intent(Intent.ACTION_VIEW);
+                                i.setData(Uri.parse(url));
+                                startActivity(i);
+                            }
+                        });
 
-                        String text = "<a href=" + url + "> here </a>";
-                        tvURL.setText("For more information, click " + Html.fromHtml(text));
+//                        String url = "http://www.stackoverflow.com";
+//                        Intent i = new Intent(Intent.ACTION_VIEW);
+//                        i.setData(Uri.parse(url));
+//                        startActivity(i);
+
+//                        TextView tvURL = new TextView(RecipeDetailsActivity.this);
+//                        tvURL.setClickable(true);
+//                        tvURL.setMovementMethod(LinkMovementMethod.getInstance());
+//                        String url = response.body().getRecipe().getSourceUrl();
+//
+//
+//                        String text = "<a href=" + url + "> here </a>";
+//                        tvURL.setText("For more information, click " + Html.fromHtml(text))
                     }
+
                 }
 
             }
@@ -96,7 +122,7 @@ public class RecipeDetailsActivity extends AppCompatActivity {
     }
 
     private void favButton() {
-        Button btnFav = findViewById(R.id.btnFav);
+        ImageButton btnFav = findViewById(R.id.btnFav);
         btnFav.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
