@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.ait.kim.pantryrescue.MainActivity;
@@ -31,13 +32,13 @@ public class ItemRecyclerAdapter extends RecyclerView.Adapter<ItemRecyclerAdapte
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private TextView tvName;
-        private Button btnDeleteItem;
+        private ImageButton btnDeleteItem;
 
 
         public ViewHolder(View itemView) {
             super(itemView);
             tvName = (TextView) itemView.findViewById(R.id.tvName);
-            btnDeleteItem = (Button) itemView.findViewById(R.id.btnDeleteItem);
+            btnDeleteItem = (ImageButton) itemView.findViewById(R.id.btnDeleteItem);
             itemView.setClickable(true);
 
 
