@@ -2,6 +2,7 @@ package com.ait.kim.pantryrescue;
 
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
@@ -11,6 +12,8 @@ import android.widget.TextView;
 
 import com.ait.kim.pantryrescue.SearchData.SearchResult;
 import com.ait.kim.pantryrescue.network.RecipeApi;
+
+import org.w3c.dom.Text;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -57,10 +60,11 @@ public class RecipeNamesActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(Call<SearchResult> call, final Response<SearchResult> response) {
-                if (response.body().getCount() >= 10) {
+                if (response.body().getRecipes() != null) {
                     int size = response.body().getRecipes().size();
-                    for(int i =0; i < size; i ++){
+                    for(int i =0; i < size; i ++) {
                         TextView recipe = new TextView(RecipeNamesActivity.this);
+                        recipe.setTextSize(17);
                         recipe.setTypeface(Typeface.create("monospace", Typeface.NORMAL));
                         recipe.setText(response.body().getRecipes().get(i).getTitle());
                         recipe.setGravity(Gravity.CENTER);
@@ -73,7 +77,6 @@ public class RecipeNamesActivity extends AppCompatActivity {
                                 showRecipeDetailsActivity(recipeid);
                             }
                         });
-
                     }
 
                 } else {
@@ -97,6 +100,8 @@ public class RecipeNamesActivity extends AppCompatActivity {
         newIntent.putExtra(RECIPE_ID, id);
         newIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(newIntent);
+
+
     }
 
 }
