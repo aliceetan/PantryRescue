@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -69,14 +70,14 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
                 removePost(holder.getAdapterPosition());
             }
         });
-//
-//        if(post.getImgUrl() != null){
-//            Glide.with(context).load(post.getImgUrl()).into(holder.ivPostImg);
-//            holder.ivPostImg.setVisibility(View.VISIBLE);
-//        }
-//        else{
-//            holder.ivPostImg.setVisibility(View.GONE);
-//        }
+
+        if(post.getImgUrl() != null){
+            Glide.with(context).load(post.getImgUrl()).into(holder.ivPostImg);
+            holder.ivPostImg.setVisibility(View.VISIBLE);
+        }
+        else{
+            holder.ivPostImg.setVisibility(View.GONE);
+        }
 
     }
 
@@ -108,7 +109,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
         public TextView tvAuthor;
         public TextView tvTitle;
         public TextView tvBody;
-        public Button btnDelete;
+        public ImageButton btnDelete;
         public ImageView ivPostImg;
 
         public ViewHolder(View itemView) {

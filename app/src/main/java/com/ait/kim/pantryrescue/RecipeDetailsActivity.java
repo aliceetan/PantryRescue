@@ -35,9 +35,11 @@ public class RecipeDetailsActivity extends AppCompatActivity {
 
     public static final int REQUEST_NEW_POST = 101 ;
     public static final String RECIPE_TITLE = "RECIPE_TITLE";
+    public static final String IMAGE_URL = "IMAGE_URL";
     private String recipeId;
     public String appid = "7f1b23084710b3c5524faf0d773ee434";
     public String title;
+    public String imgUrl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,7 +85,7 @@ public class RecipeDetailsActivity extends AppCompatActivity {
                         title = response.body().getRecipe().getTitle();
                         tvIngredient.setText(response.body().getRecipe().getIngredients().get(i));
                         ((LinearLayout) detailsLayout).addView(tvIngredient);
-                        String imgUrl = response.body().getRecipe().getImageUrl();
+                        imgUrl = response.body().getRecipe().getImageUrl();
                         Glide.with(RecipeDetailsActivity.this).load(imgUrl).into(ivPic);
 //
 //                        tvUrl.setText(url);
@@ -98,20 +100,6 @@ public class RecipeDetailsActivity extends AppCompatActivity {
                                 startActivity(i);
                             }
                         });
-
-//                        String url = "http://www.stackoverflow.com";
-//                        Intent i = new Intent(Intent.ACTION_VIEW);
-//                        i.setData(Uri.parse(url));
-//                        startActivity(i);
-
-//                        TextView tvURL = new TextView(RecipeDetailsActivity.this);
-//                        tvURL.setClickable(true);
-//                        tvURL.setMovementMethod(LinkMovementMethod.getInstance());
-//                        String url = response.body().getRecipe().getSourceUrl();
-//
-//
-//                        String text = "<a href=" + url + "> here </a>";
-//                        tvURL.setText("For more information, click " + Html.fromHtml(text))
                     }
 
                 }
@@ -134,17 +122,17 @@ public class RecipeDetailsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 // create a post item and save it to the discussions post
 
-                showCreatePostActivity(title);
-                //startActivity(new Intent(RecipeDetailsActivity.this, CreatePostActivity.class));
+                showCreatePostActivity(title, imgUrl);
 
             }
         });
     }
 
-    private void showCreatePostActivity(String titleID) {
+    private void showCreatePostActivity(String titleID, String imgUrl) {
 
         Intent intentCreate = new Intent(RecipeDetailsActivity.this, CreatePostActivity.class);
         intentCreate.putExtra(RECIPE_TITLE, titleID);
+        intentCreate.putExtra(IMAGE_URL, imgUrl);
         intentCreate.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intentCreate);
     }

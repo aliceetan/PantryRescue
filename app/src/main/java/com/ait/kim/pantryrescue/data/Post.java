@@ -55,18 +55,13 @@ public class Post {
 //        this.body = body;
 //    }
 //
-//    public String getImgUrl() {
-//        return imgUrl;
-//    }
-//
-//    public void setImgUrl(String imgUrl) {
-//        this.imgUrl = imgUrl;
-//    }
+
 
     private String uid;
     private String author;
     private String title;
     private String body;
+    private String imgUrl;
 
     public Post(){
 
@@ -77,6 +72,7 @@ public class Post {
         this.uid = uid;
         this.title = title;
         this.body = body;
+
     }
 
 
@@ -111,4 +107,13 @@ public class Post {
     public void setBody(String body) {
         this.body = body;
     }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
+
 }

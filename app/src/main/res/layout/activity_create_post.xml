@@ -1,40 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:gravity="center"
-    android:id="@+id/activity_write_post"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:orientation="vertical">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/etTitle"
+    <LinearLayout
+        android:gravity="center"
+        android:id="@+id/activity_write_post"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Title"
-        android:fontFamily="monospace"
-        android:maxLines="1" />
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/etBody"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/field_title"
-        android:hint="Write your post..."
-        android:fontFamily="monospace"
-        android:inputType="textMultiLine"
-        android:maxLines="10"
-        android:scrollHorizontally="false" />
+        <ImageView
+            android:id="@+id/ivWritePostPic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="50dp"
+            android:scaleType="fitCenter"/>
 
-    <Button
-        android:id="@+id/btnSend"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Send"
-        android:fontFamily="monospace"/>
+        <EditText
+            android:id="@+id/etTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Title"
+            android:fontFamily="monospace"
+            android:maxLines="1" />
 
-</LinearLayout>
+        <EditText
+            android:id="@+id/etBody"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/field_title"
+            android:hint="Write your post..."
+            android:fontFamily="monospace"
+            android:inputType="textMultiLine"
+            android:maxLines="10"
+            android:scrollHorizontally="false" />
+
+        <ImageView
+            android:id="@+id/imgAttach"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:visibility="gone"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnAttachPic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Attach Image"
+                android:fontFamily="monospace"/>
+
+            <Button
+                android:id="@+id/btnSend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Send"
+                android:fontFamily="monospace"/>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</ScrollView>
+

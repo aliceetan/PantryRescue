@@ -4,55 +4,77 @@
     android:id="@+id/card_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:layout_margin="10dp"
-    card_view:cardCornerRadius="4dp">
+    android:layout_margin="8dp"
+    card_view:cardBackgroundColor="#ffffff"
+    card_view:cardCornerRadius="4dp"
+    card_view:cardElevation="4dp">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="6">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:src="@drawable/icons8_speech_bubble_50" />
+
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
+            android:layout_weight="4"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/tvAuthor"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:text="blah"
+                android:textColor="#000000"
+                android:textSize="13sp" />
 
             <TextView
                 android:id="@+id/tvTitle"
+                style="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="blah"
+                android:textColor="#000000"
+                android:textSize="13sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvBody"
+                style="bold"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
+                android:layout_height="wrap_content"
+                android:text="blah"
+                android:textColor="#000000"
+                android:textSize="13sp" />
             <ImageView
                 android:id="@+id/ivPost"
                 android:visibility="gone"
                 android:layout_width="70dp"
                 android:layout_height="70dp" />
 
+
         </LinearLayout>
 
-        <Button
+        <ImageButton
             android:id="@+id/btnDelete"
-            android:text="Delete"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerHorizontal="true"/>
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:background="#FFFFFF"
+            android:src="@drawable/icons8_delete_26" />
 
-    </RelativeLayout>
+    </LinearLayout>
 
 
 </android.support.v7.widget.CardView>
