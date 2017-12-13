@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -22,6 +23,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class LoginActivity extends AppCompatActivity {
+
 
     @BindView(R.id.etEmail)
     EditText etEmail;
@@ -44,7 +46,7 @@ public class LoginActivity extends AppCompatActivity {
 
     @OnClick(R.id.btnRegister)
     void registerClick() {
-        if(!isFormValid()) {
+        if (!isFormValid()) {
             return;
         }
 
@@ -55,7 +57,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 progressDialog.dismiss();
 
-                if(task.isSuccessful()){
+                if (task.isSuccessful()) {
                     FirebaseUser fbUser = task.getResult().getUser();
 
                     fbUser.updateProfile(
@@ -64,10 +66,9 @@ public class LoginActivity extends AppCompatActivity {
                     );
                 }
 
-                if(task.isSuccessful()) {
+                if (task.isSuccessful()) {
                     Toast.makeText(LoginActivity.this, "Registration ok", Toast.LENGTH_SHORT).show();
-                }
-                else{
+                } else {
                     Toast.makeText(LoginActivity.this, "Error: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
@@ -75,8 +76,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     @OnClick(R.id.btnLogin)
-    void loginClick(){
-        if(!isFormValid()){
+    void loginClick() {
+        if (!isFormValid()) {
             return;
         }
 
@@ -90,7 +91,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 progressDialog.dismiss();
 
-                if(task.isSuccessful()) {
+                if (task.isSuccessful()) {
                     // open messages Activity
 //                    startActivity(new Intent(LoginActivity.this),
 //                            PostsActivity.class);
@@ -114,7 +115,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void showProgressDialog() {
-        if(progressDialog == null) {
+        if (progressDialog == null) {
             progressDialog = new ProgressDialog(this);
             progressDialog.setMessage("Wait for it...");
         }
@@ -122,13 +123,13 @@ public class LoginActivity extends AppCompatActivity {
         progressDialog.show();
     }
 
-    private boolean isFormValid(){
-        if(TextUtils.isEmpty(etEmail.getText())){
+    private boolean isFormValid() {
+        if (TextUtils.isEmpty(etEmail.getText())) {
             etEmail.setError("The email can not be empty");
             return false;
         }
 
-        if(TextUtils.isEmpty(etPassword.getText())){
+        if (TextUtils.isEmpty(etPassword.getText())) {
             etPassword.setError("The password cannot be empty");
             return false;
         }
@@ -143,5 +144,7 @@ public class LoginActivity extends AppCompatActivity {
             return email;
         }
     }
+
+
 }
 

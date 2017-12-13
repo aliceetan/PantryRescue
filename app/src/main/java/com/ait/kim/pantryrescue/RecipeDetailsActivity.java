@@ -1,6 +1,7 @@
 package com.ait.kim.pantryrescue;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
@@ -62,6 +63,8 @@ public class RecipeDetailsActivity extends AppCompatActivity {
 
         final RecipeApi foodAPI = retrofit.create(RecipeApi.class);
 
+        ImageButton btnFave = findViewById(R.id.btnFav);
+
 
         Call<GetResult> call = foodAPI.getRecipe(appid, recipeId);
 
@@ -72,7 +75,7 @@ public class RecipeDetailsActivity extends AppCompatActivity {
                     int size = response.body().getRecipe().getIngredients().size();
                     for (int i = 0; i < size; i++) {
                         TextView tvIngredient = new TextView(RecipeDetailsActivity.this);
-                        tvIngredient.setTextSize(16);
+                        tvIngredient.setTextSize(17);
                         tvIngredient.setTypeface(Typeface.create("monospace", Typeface.NORMAL));
                         tvTitle.setText(response.body().getRecipe().getTitle());
                         tvIngredient.setText(response.body().getRecipe().getIngredients().get(i));
@@ -127,8 +130,10 @@ public class RecipeDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // create a post item and save it to the discussions post
+                startActivity(new Intent(RecipeDetailsActivity.this, CreatePostActivity.class));
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
 
-                Post newFav = new Post();
             }
         });
     }

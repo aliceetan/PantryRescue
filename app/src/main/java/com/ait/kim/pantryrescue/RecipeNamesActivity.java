@@ -1,6 +1,7 @@
 package com.ait.kim.pantryrescue;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
@@ -60,11 +61,12 @@ public class RecipeNamesActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(Call<SearchResult> call, final Response<SearchResult> response) {
-                if (response.body().getRecipes() != null) {
+                if (response.body().getCount() >= 5) {
                     int size = response.body().getRecipes().size();
                     for(int i =0; i < size; i ++) {
                         TextView recipe = new TextView(RecipeNamesActivity.this);
                         recipe.setTextSize(17);
+                        recipe.setTextColor(Color.BLACK);
                         recipe.setTypeface(Typeface.create("monospace", Typeface.NORMAL));
                         recipe.setText(response.body().getRecipes().get(i).getTitle());
                         recipe.setGravity(Gravity.CENTER);
@@ -80,8 +82,12 @@ public class RecipeNamesActivity extends AppCompatActivity {
                     }
 
                 } else {
-
+                    TextView error = new TextView(RecipeNamesActivity.this);
+                    error.setTextSize(17);
+                    error.setGravity(Gravity.CENTER);
                     error.setText("Please check formatting / choose different ingredients");
+                    ((LinearLayout) linearLayout).addView(error);
+
                 }
             }
 
