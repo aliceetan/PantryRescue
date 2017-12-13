@@ -7,7 +7,8 @@ import io.realm.annotations.PrimaryKey;
  * Created by kimpham on 12/10/17.
  */
 
-public class Item extends RealmObject {
+public class Item {
+    private String uid;
     private String itemName;
 
     @PrimaryKey
@@ -17,9 +18,18 @@ public class Item extends RealmObject {
 
     }
 
-    public Item(String itemName) {
+    public Item(String uid, String itemName) {
+        this.uid = uid;
         this.itemName = itemName;
 
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 
     public String getItemName() {

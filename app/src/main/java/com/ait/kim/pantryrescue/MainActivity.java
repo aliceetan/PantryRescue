@@ -2,6 +2,7 @@ package com.ait.kim.pantryrescue;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -22,15 +23,19 @@ import android.widget.Toast;
 
 import com.ait.kim.pantryrescue.adapter.IngredientsRecyclerAdapter;
 import com.ait.kim.pantryrescue.data.Item;
-import com.ait.kim.pantryrescue.touch.ItemTouchHelperCallback;
+//import com.ait.kim.pantryrescue.touch.ItemTouchHelperCallback;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import io.realm.Realm;
-import io.realm.RealmResults;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -43,8 +48,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        ((IngredientsApplication) getApplication()).openRealm();
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
         NavigationView navigationView = (NavigationView) findViewById(R.id.navigationView);
@@ -71,9 +74,7 @@ public class MainActivity extends AppCompatActivity {
                                 drawerLayout.closeDrawer(GravityCompat.START);
                                 finish();
                                 break;
-
                         }
-
                         return false;
                     }
                 });
@@ -97,34 +98,58 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 showAddDialog();
-
-
             }
         });
 
-        RealmResults<Item> allItems = getRealm().where(Item.class).findAll();
-        Item itemsArray[] = new Item[allItems.size()];
-        List<Item> itemsResult = new ArrayList<Item>(Arrays.asList(allItems.toArray(itemsArray)));
+        setUpList();
+        initIngredientsListener();
+    }
 
-        adapter = new IngredientsRecyclerAdapter(this, ((IngredientsApplication) getApplication()).getRealmItem());
-
-
+    private void setUpList(){
         RecyclerView recyclerViewItem = (RecyclerView) findViewById(R.id.recyclerItem);
+        adapter = new IngredientsRecyclerAdapter(this, FirebaseAuth.getInstance().getCurrentUser().getUid());
 
-        recyclerViewItem.setLayoutManager(new LinearLayoutManager(this));
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        layoutManager.setReverseLayout(true);
+        layoutManager.setStackFromEnd(true);
+        recyclerViewItem.setLayoutManager(layoutManager);
         recyclerViewItem.setAdapter(adapter);
+    }
 
+    private void initIngredientsListener() {
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("ingredients");
+        reference.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                Item ingredient = dataSnapshot.getValue(Item.class);
+                adapter.addIngredient(ingredient,dataSnapshot.getKey());
 
-        ItemTouchHelperCallback callback = new ItemTouchHelperCallback(adapter);
-        ItemTouchHelper touchHelper = new ItemTouchHelper(callback);
-        touchHelper.attachToRecyclerView(recyclerViewItem);
+            }
 
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
 
+            }
 
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+                adapter.removeItemByKey(dataSnapshot.getKey());
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 
     private void showAddDialog() {
-
 
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setTitle("Separate ingredients by comma or enter keyword");
@@ -135,8 +160,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialogInterface, int which) {
                 if (TextUtils.isEmpty(input.getText())) {
                     Toast.makeText(MainActivity.this, "Input required", Toast.LENGTH_SHORT).show();
-                } else
-                    adapter.addItem(input.getText().toString());
+                } else {
+                    String title = input.getText().toString();
+                    addToList(title);
+                }
             }
         });
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -149,21 +176,26 @@ public class MainActivity extends AppCompatActivity {
         builder.show();
     }
 
+    private void addToList(String title){
+        String newKey = FirebaseDatabase.getInstance().getReference().child("ingredients").push().getKey();
+        Item newIngredient = new Item(
+                FirebaseAuth.getInstance().getCurrentUser().getUid(),
+                title
+        );
+        FirebaseDatabase.getInstance().getReference().child("ingredients").child(newKey)
+                .setValue(newIngredient).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    Toast.makeText(MainActivity.this, "success", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
     private void showPostActivity() {
         Intent newIntent = new Intent(MainActivity.this, PostsActivity.class);
         startActivity(newIntent);
-    }
-
-
-    public Realm getRealm() {
-
-        return ((IngredientsApplication) getApplication()).getRealmItem();
-    }
-
-    public void deleteItem(Item item) {
-        getRealm().beginTransaction();
-        item.deleteFromRealm();
-        getRealm().commitTransaction();
     }
 
 
@@ -174,20 +206,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        ((IngredientsApplication) getApplication()).closeRealm();
-    }
-
-
     public void showRecipeActivity(String item) {
         Intent newIntent = new Intent(MainActivity.this, RecipeNamesActivity.class);
         newIntent.putExtra(ITEM_NAME, item);
         newIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(newIntent);
-
     }
 
     @Override

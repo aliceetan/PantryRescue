@@ -18,7 +18,6 @@ public class PostsActivity extends AppCompatActivity {
 
     private PostsAdapter adapter;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
