@@ -1,6 +1,7 @@
 package com.ait.kim.pantryrescue;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
@@ -127,6 +128,9 @@ public class RecipeDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // create a post item and save it to the discussions post
+                startActivity(new Intent(RecipeDetailsActivity.this, CreatePostActivity.class));
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
             }
         });
     }
