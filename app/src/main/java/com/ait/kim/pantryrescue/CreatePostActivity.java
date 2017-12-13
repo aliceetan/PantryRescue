@@ -33,7 +33,20 @@ public class CreatePostActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_post);
 
+        etTitle = findViewById(R.id.etTitle);
+        etBody = findViewById(R.id.etBody);
+
         ButterKnife.bind(this);
+
+        if(getIntent().getSerializableExtra(RecipeDetailsActivity.RECIPE_TITLE) != null){
+            initEdit();
+        }
+
+    }
+
+    private void initEdit() {
+        String recipeTitle = getIntent().getStringExtra(RecipeDetailsActivity.RECIPE_TITLE);
+        etTitle.setText(recipeTitle);
     }
 
     @OnClick(R.id.btnSend)
@@ -52,6 +65,7 @@ public class CreatePostActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
                     Toast.makeText(CreatePostActivity.this, "success", Toast.LENGTH_SHORT).show();
+                    finish();
                 }
             }
         });

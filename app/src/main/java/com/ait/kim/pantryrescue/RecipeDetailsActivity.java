@@ -33,6 +33,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RecipeDetailsActivity extends AppCompatActivity {
 
+    public static final int REQUEST_NEW_POST = 101 ;
+    public static final String RECIPE_TITLE = "RECIPE_TITLE";
     private String recipeId;
     public String appid = "7f1b23084710b3c5524faf0d773ee434";
     public String title;
@@ -78,6 +80,7 @@ public class RecipeDetailsActivity extends AppCompatActivity {
                         tvIngredient.setTextSize(17);
                         tvIngredient.setTypeface(Typeface.create("monospace", Typeface.NORMAL));
                         tvTitle.setText(response.body().getRecipe().getTitle());
+                        title = response.body().getRecipe().getTitle();
                         tvIngredient.setText(response.body().getRecipe().getIngredients().get(i));
                         ((LinearLayout) detailsLayout).addView(tvIngredient);
                         String imgUrl = response.body().getRecipe().getImageUrl();
@@ -130,11 +133,19 @@ public class RecipeDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // create a post item and save it to the discussions post
-                startActivity(new Intent(RecipeDetailsActivity.this, CreatePostActivity.class));
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+
+                showCreatePostActivity(title);
+                //startActivity(new Intent(RecipeDetailsActivity.this, CreatePostActivity.class));
 
             }
         });
+    }
+
+    private void showCreatePostActivity(String titleID) {
+
+        Intent intentCreate = new Intent(RecipeDetailsActivity.this, CreatePostActivity.class);
+        intentCreate.putExtra(RECIPE_TITLE, titleID);
+        intentCreate.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intentCreate);
     }
 }

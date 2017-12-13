@@ -29,57 +29,6 @@
             android:textSize="30dp" />
 
 
-        <LinearLayout
-            android:paddingTop="8dp"
-            android:paddingBottom="10dp"
-            android:layout_gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="4">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="monospace"
-                    android:text="Instructions:"
-                    android:textSize="20dp" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/colorPrimary"
-                        android:autoLink="web"
-                        android:text="click "
-                        android:textSize="20dp" />
-
-
-                    <TextView
-                        android:id="@+id/tvUrl"
-                        android:layout_marginRight="4dp"
-                        android:layout_width="250dp"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/colorPrimary"
-                        android:autoLink="web"
-                        android:textStyle="italic"
-                        android:text="here"
-                        android:textSize="20dp" />
-                </LinearLayout>
-
-
-            </LinearLayout>
-
-
             <ImageButton
                 android:layout_marginRight="2dp"
                 android:background="@color/cardview_light_background"
@@ -88,7 +37,44 @@
                 android:src="@drawable/icons8_star_80"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:layout_gravity="center" />
+                android:layout_gravity="right" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:autoLink="web"
+                android:text="click "
+                android:fontFamily="monospace"
+                android:textSize="20dp" />
+
+
+            <TextView
+                android:id="@+id/tvUrl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="4dp"
+                android:autoLink="web"
+                android:fontFamily="monospace"
+                android:text="here "
+                android:textColor="@color/colorPrimary"
+                android:textSize="20dp"
+                android:textStyle="italic" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="4dp"
+                android:autoLink="web"
+                android:fontFamily="monospace"
+                android:text="for directions"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20dp" />
 
         </LinearLayout>
 

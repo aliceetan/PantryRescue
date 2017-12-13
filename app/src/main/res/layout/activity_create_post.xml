@@ -16,6 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Title"
+        android:fontFamily="monospace"
         android:maxLines="1" />
 
     <EditText
@@ -24,6 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/field_title"
         android:hint="Write your post..."
+        android:fontFamily="monospace"
         android:inputType="textMultiLine"
         android:maxLines="10"
         android:scrollHorizontally="false" />
@@ -32,6 +34,7 @@
         android:id="@+id/btnSend"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Send"/>
+        android:text="Send"
+        android:fontFamily="monospace"/>
 
 </LinearLayout>
