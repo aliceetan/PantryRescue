@@ -9,7 +9,7 @@ import io.realm.RealmConfiguration;
  * Created by kimpham on 12/10/17.
  */
 
-public class ItemApplication extends Application {
+public class IngredientsApplication extends Application {
 
     private Realm realmItem;
 

@@ -5,7 +5,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -27,7 +26,7 @@ import io.realm.Sort;
  * Created by kimpham on 12/10/17.
  */
 
-public class ItemRecyclerAdapter extends RecyclerView.Adapter<ItemRecyclerAdapter.ViewHolder> implements ItemTouchHelperAdapter {
+public class IngredientsRecyclerAdapter extends RecyclerView.Adapter<IngredientsRecyclerAdapter.ViewHolder> implements ItemTouchHelperAdapter {
 
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -40,8 +39,6 @@ public class ItemRecyclerAdapter extends RecyclerView.Adapter<ItemRecyclerAdapte
             tvName = (TextView) itemView.findViewById(R.id.tvName);
             btnDeleteItem = (ImageButton) itemView.findViewById(R.id.btnDeleteItem);
             itemView.setClickable(true);
-
-
         }
     }
 
@@ -49,7 +46,7 @@ public class ItemRecyclerAdapter extends RecyclerView.Adapter<ItemRecyclerAdapte
     private Context context;
     private Realm realmItem;
 
-    public ItemRecyclerAdapter(Context context, Realm realmItem) {
+    public IngredientsRecyclerAdapter(Context context, Realm realmItem) {
         this.context = context;
         this.realmItem = realmItem;
 

@@ -46,7 +46,6 @@ public class PostsActivity extends AppCompatActivity {
 
             }
 
-
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
 

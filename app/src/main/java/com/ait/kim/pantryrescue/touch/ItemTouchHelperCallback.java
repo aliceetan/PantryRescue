@@ -3,7 +3,7 @@ package com.ait.kim.pantryrescue.touch;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 
-import com.ait.kim.pantryrescue.adapter.ItemRecyclerAdapter;
+import com.ait.kim.pantryrescue.adapter.IngredientsRecyclerAdapter;
 
 /**
  * Created by kimpham on 12/10/17.
@@ -12,9 +12,9 @@ import com.ait.kim.pantryrescue.adapter.ItemRecyclerAdapter;
 
 public class ItemTouchHelperCallback extends ItemTouchHelper.Callback {
 
-    private ItemRecyclerAdapter recyclerAdapter;
+    private IngredientsRecyclerAdapter recyclerAdapter;
 
-    public ItemTouchHelperCallback(ItemRecyclerAdapter recyclerAdapter) {
+    public ItemTouchHelperCallback(IngredientsRecyclerAdapter recyclerAdapter) {
         this.recyclerAdapter = recyclerAdapter;
     }
 

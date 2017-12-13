@@ -20,7 +20,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.ait.kim.pantryrescue.adapter.ItemRecyclerAdapter;
+import com.ait.kim.pantryrescue.adapter.IngredientsRecyclerAdapter;
 import com.ait.kim.pantryrescue.data.Item;
 import com.ait.kim.pantryrescue.touch.ItemTouchHelperCallback;
 import com.google.firebase.auth.FirebaseAuth;
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public static final String ITEM_NAME = "ITEM_NAME";
-    private ItemRecyclerAdapter adapter;
+    private IngredientsRecyclerAdapter adapter;
     private DrawerLayout drawerLayout;
 
     @Override
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ((ItemApplication) getApplication()).openRealm();
+        ((IngredientsApplication) getApplication()).openRealm();
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
         NavigationView navigationView = (NavigationView) findViewById(R.id.navigationView);
@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
         Item itemsArray[] = new Item[allItems.size()];
         List<Item> itemsResult = new ArrayList<Item>(Arrays.asList(allItems.toArray(itemsArray)));
 
-        adapter = new ItemRecyclerAdapter(this, ((ItemApplication) getApplication()).getRealmItem());
+        adapter = new IngredientsRecyclerAdapter(this, ((IngredientsApplication) getApplication()).getRealmItem());
 
 
         RecyclerView recyclerViewItem = (RecyclerView) findViewById(R.id.recyclerItem);
@@ -157,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
 
     public Realm getRealm() {
 
-        return ((ItemApplication) getApplication()).getRealmItem();
+        return ((IngredientsApplication) getApplication()).getRealmItem();
     }
 
     public void deleteItem(Item item) {
@@ -178,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        ((ItemApplication) getApplication()).closeRealm();
+        ((IngredientsApplication) getApplication()).closeRealm();
     }
 
 
