@@ -54,6 +54,7 @@ public class PostsActivity extends AppCompatActivity {
 
             @Override
             public void onChildRemoved(DataSnapshot dataSnapshot) {
+                adapter.removePostByKey(dataSnapshot.getKey());
 
             }
 
