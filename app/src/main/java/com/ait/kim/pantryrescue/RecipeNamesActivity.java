@@ -22,10 +22,6 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-/**
- * Created by kimpham on 12/10/17.
- */
-
 public class RecipeNamesActivity extends AppCompatActivity {
 
     private String itemName;

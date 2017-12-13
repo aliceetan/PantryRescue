@@ -1,69 +1,6 @@
 package com.ait.kim.pantryrescue.adapter;
 
 
-//public class IngredientsRecyclerAdapter extends RecyclerView.Adapter<IngredientsRecyclerAdapter.ViewHolder> implements ItemTouchHelperAdapter {
-//
-//
-//    public static class ViewHolder extends RecyclerView.ViewHolder {
-//        private TextView tvName;
-//        private ImageButton btnDeleteItem;
-//
-//
-//        public ViewHolder(View itemView) {
-//            super(itemView);
-//            tvName = (TextView) itemView.findViewById(R.id.tvName);
-//            btnDeleteItem = (ImageButton) itemView.findViewById(R.id.btnDeleteItem);
-//            itemView.setClickable(true);
-//        }
-//    }
-//
-//    private List<Item> itemList;
-//    private Context context;
-//    private Realm realmItem;
-//
-//    public IngredientsRecyclerAdapter(Context context, Realm realmItem) {
-//        this.context = context;
-//        this.realmItem = realmItem;
-//
-//
-//        itemList = new ArrayList<Item>();
-//
-//        RealmResults<Item> items = realmItem.where(Item.class).findAll().sort("itemName", Sort.ASCENDING);
-//
-//        for (Item item : items) {
-//            itemList.add(item);
-//        }
-//    }
-//
-//    @Override
-//    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-//        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_row,
-//                viewGroup, false);
-//
-//        ViewHolder vh = new ViewHolder(v);
-//        return vh;
-//    }
-//
-//    @Override
-//    public void onBindViewHolder(final ViewHolder holder, final int position) {
-//        final Item itemData = itemList.get(position);
-//        holder.tvName.setText(itemData.getItemName());
-//        holder.btnDeleteItem.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                onItemDismiss(holder.getAdapterPosition());
-//            }
-//        });
-//
-//        holder.itemView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                ((MainActivity) context).showRecipeActivity(itemData.getItemName());
-//            }
-//        });
-//    }
-
-
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;

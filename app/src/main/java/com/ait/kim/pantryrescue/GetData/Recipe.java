@@ -1,8 +1,5 @@
 package com.ait.kim.pantryrescue.GetData;
 
-/**
- * Created by alicetan on 12/10/17.
- */
 
 import java.util.List;
 import com.google.gson.annotations.Expose;

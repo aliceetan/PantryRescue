@@ -19,6 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Pantry Rescue"
+            android:fontFamily="monospace"
             android:layout_gravity="center_horizontal"
             android:textSize="35sp"
             android:paddingBottom="15dp"
@@ -39,6 +40,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
+                android:fontFamily="monospace"
                 android:hint="Email"
                 android:text = "sarah@sarah.com"/>
         </android.support.design.widget.TextInputLayout>
@@ -53,6 +55,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
+                android:fontFamily="monospace"
                 android:hint="Password"
                 android:text="password"/>
         </android.support.design.widget.TextInputLayout>
@@ -64,14 +67,16 @@
             android:layout_marginTop="24dp"
             android:layout_marginBottom="12dp"
             android:padding="12dp"
-            android:text="Login"/>
+            android:text="Login"
+            android:fontFamily="monospace"/>
 
         <Button
             android:id="@+id/btnRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="12dp"
-            android:text="Register"/>
+            android:text="Register"
+            android:fontFamily="monospace"/>
 
 
 

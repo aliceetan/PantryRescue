@@ -7,9 +7,6 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
-/**
- * Created by kimpham on 12/10/17.
- */
 
 public interface RecipeApi {
     @GET("/api/search")
