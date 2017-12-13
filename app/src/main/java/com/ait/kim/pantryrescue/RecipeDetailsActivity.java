@@ -21,6 +21,7 @@ import android.widget.TextView;
 import com.ait.kim.pantryrescue.GetData.GetResult;
 import com.ait.kim.pantryrescue.R;
 import com.ait.kim.pantryrescue.SearchData.SearchResult;
+import com.ait.kim.pantryrescue.data.Post;
 import com.ait.kim.pantryrescue.network.RecipeApi;
 import com.bumptech.glide.Glide;
 
@@ -34,6 +35,7 @@ public class RecipeDetailsActivity extends AppCompatActivity {
 
     private String recipeId;
     public String appid = "7f1b23084710b3c5524faf0d773ee434";
+    public String title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -131,6 +133,7 @@ public class RecipeDetailsActivity extends AppCompatActivity {
                 startActivity(new Intent(RecipeDetailsActivity.this, CreatePostActivity.class));
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+
             }
         });
     }
