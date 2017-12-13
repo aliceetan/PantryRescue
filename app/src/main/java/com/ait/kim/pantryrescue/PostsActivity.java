@@ -18,7 +18,6 @@ public class PostsActivity extends AppCompatActivity {
 
     private PostsAdapter adapter;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +44,6 @@ public class PostsActivity extends AppCompatActivity {
                 adapter.addPost(post,dataSnapshot.getKey());
 
             }
-
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
