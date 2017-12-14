@@ -16,7 +16,7 @@
 
     <item
         android:title="View posts"
-        android:orderInCategory="100"
+        android:orderInCategory="100"gi
         android:id="@+id/action_view"
         android:icon="@android:drawable/ic_menu_gallery" />
 
