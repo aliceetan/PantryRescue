@@ -2,6 +2,8 @@ package com.ait.kim.pantryrescue;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -31,6 +33,10 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.Date;
+
+import uk.co.samuelwall.materialtaptargetprompt.MaterialTapTargetPrompt;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -110,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerViewItem.setLayoutManager(layoutManager);
         recyclerViewItem.setAdapter(adapter);
     }
+
 
     private void initIngredientsListener() {
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference(getString(R.string.ingredients));
