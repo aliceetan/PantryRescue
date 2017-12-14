@@ -40,6 +40,9 @@ public class RecipeDetailsActivity extends AppCompatActivity {
     public String appid = "7f1b23084710b3c5524faf0d773ee434";
     public String title;
     public String imgUrl;
+    private ImageButton btnFav;
+    private ImageButton btnHome;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +55,8 @@ public class RecipeDetailsActivity extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
+        btnFav = findViewById(R.id.btnFav);
+        btnHome = findViewById(R.id.btnHome);
         favButton();
         homeButton();
 
@@ -68,7 +73,7 @@ public class RecipeDetailsActivity extends AppCompatActivity {
 
         final RecipeApi foodAPI = retrofit.create(RecipeApi.class);
 
-        ImageButton btnFave = findViewById(R.id.btnFav);
+
 
 
         Call<GetResult> call = foodAPI.getRecipe(appid, recipeId);
@@ -117,8 +122,7 @@ public class RecipeDetailsActivity extends AppCompatActivity {
     }
 
     private void homeButton() {
-        ImageButton btnFav = findViewById(R.id.btnHome);
-        btnFav.setOnClickListener(new View.OnClickListener() {
+        btnHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent newIntent = new Intent(RecipeDetailsActivity.this, MainActivity.class);
@@ -128,7 +132,6 @@ public class RecipeDetailsActivity extends AppCompatActivity {
     }
 
     private void favButton() {
-        ImageButton btnFav = findViewById(R.id.btnFav);
         btnFav.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
