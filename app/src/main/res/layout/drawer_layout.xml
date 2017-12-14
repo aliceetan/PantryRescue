@@ -12,7 +12,6 @@
         />
 
     <TextView
-        android:textColorHighlight="#000000"
         android:text="Welcome to PantryRescue!"
         android:textAlignment="textEnd"
         android:layout_width="match_parent"
