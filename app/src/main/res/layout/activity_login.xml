@@ -18,11 +18,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-<<<<<<< HEAD
             android:text="@string/pantry_rescue"
-=======
-            android:text="Pantry Rescue"
->>>>>>> aaa4ff4e7db5e147c76412aa07b75e71c3b1f087
             android:fontFamily="monospace"
             android:layout_gravity="center_horizontal"
             android:textSize="35dp"
