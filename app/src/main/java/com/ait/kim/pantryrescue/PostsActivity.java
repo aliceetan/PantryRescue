@@ -41,7 +41,7 @@ public class PostsActivity extends AppCompatActivity {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 Post post = dataSnapshot.getValue(Post.class);
-                adapter.addPost(post,dataSnapshot.getKey());
+                adapter.addPost(post, dataSnapshot.getKey());
 
             }
 

@@ -2,6 +2,7 @@ package com.ait.kim.pantryrescue.GetData;
 
 
 import java.util.List;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

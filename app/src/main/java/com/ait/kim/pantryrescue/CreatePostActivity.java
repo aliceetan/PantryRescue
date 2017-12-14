@@ -58,7 +58,7 @@ public class CreatePostActivity extends AppCompatActivity {
         btnAttachPic.setVisibility(View.GONE);
 
 
-        if(getIntent().getSerializableExtra(RecipeDetailsActivity.RECIPE_TITLE) != null){
+        if (getIntent().getSerializableExtra(RecipeDetailsActivity.RECIPE_TITLE) != null) {
             initEdit();
         }
         String imageUrl = getIntent().getStringExtra(RecipeDetailsActivity.IMAGE_URL);
@@ -110,7 +110,7 @@ public class CreatePostActivity extends AppCompatActivity {
     }
 
     @OnClick(R.id.btnSend)
-    void sendClick(){
+    void sendClick() {
 
         if (imgAttach.getVisibility() == View.GONE) {
             uploadPost();
@@ -130,7 +130,7 @@ public class CreatePostActivity extends AppCompatActivity {
                 FirebaseAuth.getInstance().getCurrentUser().getDisplayName(), tvTitle.getText().toString(),
                 etBody.getText().toString());
 
-        if (imageUrl != null && imageUrl.length>0) {
+        if (imageUrl != null && imageUrl.length > 0) {
             newPost.setImgUrl(imageUrl[0]);
         }
 
@@ -153,9 +153,9 @@ public class CreatePostActivity extends AppCompatActivity {
         byte[] imageInBytes = baos.toByteArray();
 
         StorageReference storageRef = FirebaseStorage.getInstance().getReference();
-        String newImage = URLEncoder.encode(UUID.randomUUID().toString(), getString(R.string.utf8))+getString(R.string.jpg);
+        String newImage = URLEncoder.encode(UUID.randomUUID().toString(), getString(R.string.utf8)) + getString(R.string.jpg);
         StorageReference newImageRef = storageRef.child(newImage);
-        StorageReference newImageImagesRef = storageRef.child(getString(R.string.images)+newImage);
+        StorageReference newImageImagesRef = storageRef.child(getString(R.string.images) + newImage);
         newImageRef.getName().equals(newImageImagesRef.getName());    // true
         newImageRef.getPath().equals(newImageImagesRef.getPath());    // false
 
@@ -183,8 +183,8 @@ public class CreatePostActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data){
-        if(requestCode == 101 && resultCode == RESULT_OK){
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 101 && resultCode == RESULT_OK) {
             Bitmap img = (Bitmap) data.getExtras().get(getString(R.string.data));
             imgAttach.setImageBitmap(img);
             imgAttach.setVisibility(View.VISIBLE);

@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
         initIngredientsListener();
     }
 
-    private void setUpList(){
+    private void setUpList() {
         RecyclerView recyclerViewItem = (RecyclerView) findViewById(R.id.recyclerItem);
         adapter = new IngredientsAdapter(this, FirebaseAuth.getInstance().getCurrentUser().getUid());
 
@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 Item ingredient = dataSnapshot.getValue(Item.class);
-                adapter.addIngredient(ingredient,dataSnapshot.getKey());
+                adapter.addIngredient(ingredient, dataSnapshot.getKey());
 
             }
 
@@ -178,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
         builder.show();
     }
 
-    private void addToList(String title){
+    private void addToList(String title) {
         String newKey = FirebaseDatabase.getInstance().getReference().child(getString(R.string.ingredients)).push().getKey();
         Item newIngredient = new Item(
                 FirebaseAuth.getInstance().getCurrentUser().getUid(),

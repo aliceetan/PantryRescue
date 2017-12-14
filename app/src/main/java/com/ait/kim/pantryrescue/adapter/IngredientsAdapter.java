@@ -29,7 +29,7 @@ public class IngredientsAdapter extends RecyclerView.Adapter<IngredientsAdapter.
     private int lastPosition = -1;
     private DatabaseReference ingredientRef;
 
-    public IngredientsAdapter(Context context, String uId){
+    public IngredientsAdapter(Context context, String uId) {
         this.context = context;
         this.uId = uId;
 
@@ -105,7 +105,7 @@ public class IngredientsAdapter extends RecyclerView.Adapter<IngredientsAdapter.
         }
     }
 
-    public void addIngredient(Item ingredient, String key){
+    public void addIngredient(Item ingredient, String key) {
         itemList.add(ingredient);
         ingredientKeys.add(key);
 

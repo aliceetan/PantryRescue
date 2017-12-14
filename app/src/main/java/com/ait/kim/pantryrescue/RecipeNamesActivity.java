@@ -42,7 +42,6 @@ public class RecipeNamesActivity extends AppCompatActivity {
                 .build();
 
 
-
         itemName = getIntent().getStringExtra(MainActivity.ITEM_NAME);
 
 
@@ -59,7 +58,7 @@ public class RecipeNamesActivity extends AppCompatActivity {
             public void onResponse(Call<SearchResult> call, final Response<SearchResult> response) {
                 if (response.body().getCount() >= 5) {
                     int size = response.body().getRecipes().size();
-                    for(int i =0; i < size; i ++) {
+                    for (int i = 0; i < size; i++) {
                         TextView recipe = new TextView(RecipeNamesActivity.this);
                         recipe.setTextSize(25);
                         recipe.setTextColor(Color.BLACK);
@@ -97,7 +96,7 @@ public class RecipeNamesActivity extends AppCompatActivity {
 
     }
 
-    public void showRecipeDetailsActivity(String id){
+    public void showRecipeDetailsActivity(String id) {
         Intent newIntent = new Intent(RecipeNamesActivity.this, RecipeDetailsActivity.class);
         newIntent.putExtra(RECIPE_ID, id);
         newIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

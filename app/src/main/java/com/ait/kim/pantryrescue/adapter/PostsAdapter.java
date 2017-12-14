@@ -28,7 +28,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
     private int lastPosition = -1;
     private DatabaseReference postsRef;
 
-    public PostsAdapter(Context context, String uId){
+    public PostsAdapter(Context context, String uId) {
         this.context = context;
         this.uId = uId;
 
@@ -52,11 +52,10 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
         holder.tvTitle.setText(post.getTitle());
 
         // if it is my comment
-        if(uId.equals(post.getUid())){
+        if (uId.equals(post.getUid())) {
             holder.btnDelete.setVisibility(View.VISIBLE);
 
-        }
-        else {
+        } else {
             holder.btnDelete.setVisibility(View.INVISIBLE);
         }
 
@@ -67,11 +66,10 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
             }
         });
 
-        if(post.getImgUrl() != null){
+        if (post.getImgUrl() != null) {
             Glide.with(context).load(post.getImgUrl()).into(holder.ivPostImg);
             holder.ivPostImg.setVisibility(View.VISIBLE);
-        }
-        else{
+        } else {
             holder.ivPostImg.setVisibility(View.GONE);
         }
 
@@ -81,7 +79,8 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
     public int getItemCount() {
         return postList.size();
     }
-//
+
+    //
     public void removePost(int index) {
         postsRef = FirebaseDatabase.getInstance().getReference();
         // ask firebase database under this key to remove this object
@@ -119,7 +118,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
         }
     }
 
-    public void addPost(Post post, String key){
+    public void addPost(Post post, String key) {
         postList.add(post);
         postKeys.add(key);
 

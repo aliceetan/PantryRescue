@@ -33,7 +33,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RecipeDetailsActivity extends AppCompatActivity {
 
-    public static final int REQUEST_NEW_POST = 101 ;
     public static final String RECIPE_TITLE = "RECIPE_TITLE";
     public static final String IMAGE_URL = "IMAGE_URL";
     private String recipeId;
@@ -74,8 +73,6 @@ public class RecipeDetailsActivity extends AppCompatActivity {
         final RecipeApi foodAPI = retrofit.create(RecipeApi.class);
 
 
-
-
         Call<GetResult> call = foodAPI.getRecipe(appid, recipeId);
 
         call.enqueue(new Callback<GetResult>() {
@@ -95,7 +92,7 @@ public class RecipeDetailsActivity extends AppCompatActivity {
                         Glide.with(RecipeDetailsActivity.this).load(imgUrl).into(ivPic);
 
                         final String url = response.body().getRecipe().getSourceUrl();
-                        tvUrl.setOnClickListener(new View.OnClickListener(){
+                        tvUrl.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
                                 Intent i = new Intent(Intent.ACTION_VIEW);
@@ -132,7 +129,6 @@ public class RecipeDetailsActivity extends AppCompatActivity {
         btnFav.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // create a post item and save it to the discussions post
                 showCreatePostActivity(title, imgUrl);
 
             }

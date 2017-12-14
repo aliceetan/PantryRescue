@@ -9,11 +9,11 @@ public class Post {
     private String body;
     private String imgUrl;
 
-    public Post(){
+    public Post() {
 
     }
 
-    public Post (String uid, String author, String title, String body){
+    public Post(String uid, String author, String title, String body) {
         this.author = author;
         this.uid = uid;
         this.title = title;
