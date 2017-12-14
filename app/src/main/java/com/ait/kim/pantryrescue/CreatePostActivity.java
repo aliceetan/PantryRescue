@@ -1,6 +1,5 @@
 package com.ait.kim.pantryrescue;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -14,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ait.kim.pantryrescue.data.Post;
@@ -42,8 +42,8 @@ import butterknife.OnClick;
 
 public class CreatePostActivity extends AppCompatActivity {
 
-    @BindView(R.id.etTitle)
-    EditText etTitle;
+    @BindView(R.id.tvTitle)
+    TextView tvTitle;
     @BindView(R.id.etBody)
     EditText etBody;
     @BindView(R.id.btnAttachPic)
@@ -73,8 +73,8 @@ public class CreatePostActivity extends AppCompatActivity {
     }
 
     private void initEdit() {
-        String recipeTitle = getIntent().getStringExtra(RecipeDetailsActivity.RECIPE_TITLE);
-        etTitle.setText(recipeTitle);
+        tvTitle.setText(getIntent().getStringExtra(RecipeDetailsActivity.RECIPE_TITLE));
+
     }
 
     private void requestNeededPermission() {
@@ -90,7 +90,6 @@ public class CreatePostActivity extends AppCompatActivity {
                             android.Manifest.permission.CAMERA},
                     101);
         } else {
-            // we have the permission
             btnAttachPic.setVisibility(View.VISIBLE);
 
         }
@@ -105,8 +104,6 @@ public class CreatePostActivity extends AppCompatActivity {
 
                 Toast.makeText(this, "Permission granted, jupeee!",
                         Toast.LENGTH_SHORT).show();
-
-                // we have the permission
 
                 btnAttachPic.setVisibility(View.VISIBLE);
             } else {
@@ -134,7 +131,7 @@ public class CreatePostActivity extends AppCompatActivity {
         String key = FirebaseDatabase.getInstance().getReference().child("posts").push().getKey();
         Post newPost = new Post(
                 FirebaseAuth.getInstance().getCurrentUser().getUid(),
-                FirebaseAuth.getInstance().getCurrentUser().getDisplayName(), etTitle.getText().toString(),
+                FirebaseAuth.getInstance().getCurrentUser().getDisplayName(), tvTitle.getText().toString(),
                 etBody.getText().toString());
 
         if (imageUrl != null && imageUrl.length>0) {
