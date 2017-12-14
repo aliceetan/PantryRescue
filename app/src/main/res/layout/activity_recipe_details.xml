@@ -44,14 +44,14 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimary"
-                android:autoLink="web"
-                android:text="click "
-                android:fontFamily="monospace"
-                android:textSize="20dp" />
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:textColor="@color/colorPrimary"-->
+                <!--android:autoLink="web"-->
+                <!--android:text="click "-->
+                <!--android:fontFamily="monospace"-->
+                <!--android:textSize="20dp" />-->
 
 
             <TextView
@@ -61,20 +61,20 @@
                 android:layout_marginRight="4dp"
                 android:autoLink="web"
                 android:fontFamily="monospace"
-                android:text="here "
+                android:text="click here for instructions"
                 android:textColor="@color/colorPrimary"
                 android:textSize="20dp"
                 android:textStyle="italic" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="4dp"
-                android:autoLink="web"
-                android:fontFamily="monospace"
-                android:text="for directions"
-                android:textColor="@color/colorPrimary"
-                android:textSize="20dp" />
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginRight="4dp"-->
+                <!--android:autoLink="web"-->
+                <!--android:fontFamily="monospace"-->
+                <!--android:text="for directions"-->
+                <!--android:textColor="@color/colorPrimary"-->
+                <!--android:textSize="20dp" />-->
 
         </LinearLayout>
 
@@ -82,7 +82,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="monospace"
-            android:text="Ingredients:"
+            android:text="@string/ingredients_colon"
             android:textSize="20dp" />
     </LinearLayout>
 

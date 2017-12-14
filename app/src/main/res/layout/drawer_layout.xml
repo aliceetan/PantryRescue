@@ -12,7 +12,7 @@
         />
 
     <TextView
-        android:text="Welcome to PantryRescue!"
+        android:text="@string/welcome"
         android:textAlignment="textEnd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

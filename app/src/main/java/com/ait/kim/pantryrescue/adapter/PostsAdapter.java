@@ -85,7 +85,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
     public void removePost(int index) {
         postsRef = FirebaseDatabase.getInstance().getReference();
         // ask firebase database under this key to remove this object
-        postsRef.child("posts").child(postKeys.get(index)).removeValue();
+        postsRef.child(context.getString(R.string.posts)).child(postKeys.get(index)).removeValue();
         postList.remove(index);
         postKeys.remove(index);
         notifyItemRemoved(index);

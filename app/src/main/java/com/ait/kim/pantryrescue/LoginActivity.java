@@ -24,7 +24,6 @@ import butterknife.OnClick;
 
 public class LoginActivity extends AppCompatActivity {
 
-
     @BindView(R.id.etEmail)
     EditText etEmail;
 
@@ -67,9 +66,9 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
                 if (task.isSuccessful()) {
-                    Toast.makeText(LoginActivity.this, "Registration ok", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, R.string.registration_success, Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(LoginActivity.this, "Error: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, getString(R.string.error_colon) + " " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -92,14 +91,11 @@ public class LoginActivity extends AppCompatActivity {
                 progressDialog.dismiss();
 
                 if (task.isSuccessful()) {
-                    // open messages Activity
-//                    startActivity(new Intent(LoginActivity.this),
-//                            PostsActivity.class);
                     startActivity(new Intent(LoginActivity.this,
                             MainActivity.class));
 
                 } else {
-                    Toast.makeText(LoginActivity.this, "Error " + task.getException().getMessage(),
+                    Toast.makeText(LoginActivity.this, getString(R.string.error) + " " + task.getException().getMessage(),
                             Toast.LENGTH_SHORT).show();
                 }
             }
@@ -107,7 +103,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Exception e) {
                 Toast.makeText(LoginActivity.this,
-                        "Error: " + e.getMessage(),
+                        getString(R.string.error_colon) + " " + e.getMessage(),
                         Toast.LENGTH_SHORT).show();
                 e.printStackTrace();
             }
@@ -117,7 +113,7 @@ public class LoginActivity extends AppCompatActivity {
     private void showProgressDialog() {
         if (progressDialog == null) {
             progressDialog = new ProgressDialog(this);
-            progressDialog.setMessage("Wait for it...");
+            progressDialog.setMessage(getString(R.string.wait));
         }
 
         progressDialog.show();
@@ -125,12 +121,12 @@ public class LoginActivity extends AppCompatActivity {
 
     private boolean isFormValid() {
         if (TextUtils.isEmpty(etEmail.getText())) {
-            etEmail.setError("The email can not be empty");
+            etEmail.setError(getString(R.string.empty_email));
             return false;
         }
 
         if (TextUtils.isEmpty(etPassword.getText())) {
-            etPassword.setError("The password cannot be empty");
+            etPassword.setError(getString(R.string.password_empty));
             return false;
         }
 

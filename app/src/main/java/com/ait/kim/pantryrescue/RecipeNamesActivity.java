@@ -81,7 +81,7 @@ public class RecipeNamesActivity extends AppCompatActivity {
                     TextView error = new TextView(RecipeNamesActivity.this);
                     error.setTextSize(17);
                     error.setGravity(Gravity.CENTER);
-                    error.setText("Please check formatting / choose different ingredients");
+                    error.setText(R.string.no_recipes);
                     ((LinearLayout) linearLayout).addView(error);
 
                 }

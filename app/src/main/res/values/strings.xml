@@ -91,4 +91,42 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="action_settings">Settings</string>
+    <string name="ingredients">ingredients</string>
+    <string name="posts">posts</string>
+    <string name="perm_granted">Permission granted, jupeee!</string>
+    <string name="perm_denied">Permission not granted :(</string>
+    <string name="post_created">Post created</string>
+    <string name="registration_success">Registration ok</string>
+    <string name="error_colon">Error:</string>
+    <string name="error">Error</string>
+    <string name="wait">Wait for it...</string>
+    <string name="empty_email">The email can not be empty</string>
+    <string name="password_empty">The password cannot be empty</string>
+    <string name="jpg">.jpg</string>
+    <string name="utf8">UTF-8</string>
+    <string name="images">images/</string>
+    <string name="data">data</string>
+    <string name="authors">Made by Alice, Kim, and Sarah</string>
+    <string name="add_ingredients_instructions">Separate ingredients by comma or enter keyword</string>
+    <string name="ok">OK</string>
+    <string name="input_required">Input required</string>
+    <string name="cancel">Cancel</string>
+    <string name="success">success</string>
+    <string name="no_ingredients">No ingredients to show</string>
+    <string name="no_recipes">Please check formatting / choose different ingredients</string>
+    <string name="write_your_post">Write your post...</string>
+    <string name="attach_image">Attach Image</string>
+    <string name="send">Send</string>
+    <string name="pantry_rescue">Pantry Rescue</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="click">click</string>
+    <string name="welcome">Welcome to Pantry Rescue!</string>
+    <string name="list_recipes">List of Recipes Containing Your Ingredients:</string>
+    <string name="author">author</string>
+    <string name="title">title</string>
+    <string name="message">message</string>
+    <string name="ingredients_colon">Ingredients:</string>
 </resources>
