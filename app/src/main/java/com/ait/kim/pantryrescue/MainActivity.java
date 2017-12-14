@@ -73,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
                             case R.id.action_logout:
                                 FirebaseAuth.getInstance().signOut();
                                 drawerLayout.closeDrawer(GravityCompat.START);
+                                showLoginActivity();
                                 finish();
                                 break;
                         }
@@ -104,6 +105,12 @@ public class MainActivity extends AppCompatActivity {
 
         setUpList();
         initIngredientsListener();
+    }
+
+    private void showLoginActivity() {
+        Intent newintent = new Intent(MainActivity.this, LoginActivity.class);
+        startActivity(newintent);
+
     }
 
     private void setUpList() {
