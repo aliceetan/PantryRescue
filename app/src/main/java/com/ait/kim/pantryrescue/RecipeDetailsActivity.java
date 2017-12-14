@@ -26,6 +26,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RecipeDetailsActivity extends AppCompatActivity {
 
+    public static final int REQUEST_NEW_POST = 101 ;
     public static final String RECIPE_TITLE = "RECIPE_TITLE";
     public static final String IMAGE_URL = "IMAGE_URL";
     private String recipeId;

@@ -9,6 +9,8 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.net.Uri;
+import org.w3c.dom.Text;
 
 import com.ait.kim.pantryrescue.SearchData.SearchResult;
 import com.ait.kim.pantryrescue.network.RecipeApi;

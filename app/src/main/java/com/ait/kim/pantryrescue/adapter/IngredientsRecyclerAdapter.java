@@ -17,6 +17,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -29,7 +30,7 @@ public class IngredientsRecyclerAdapter extends RecyclerView.Adapter<Ingredients
     private int lastPosition = -1;
     private DatabaseReference ingredientRef;
 
-    public IngredientsRecyclerAdapter(Context context, String uId){
+    public IngredientsRecyclerAdapter(Context context, String uId) {
         this.context = context;
         this.uId = uId;
 
@@ -104,6 +105,20 @@ public class IngredientsRecyclerAdapter extends RecyclerView.Adapter<Ingredients
             btnDeleteItem = itemView.findViewById(R.id.btnDeleteItem);
         }
     }
+
+    public void onItemMove(int fromPosition, int toPosition) {
+        if (fromPosition < toPosition) {
+            for (int i = fromPosition; i < toPosition; i++) {
+                Collections.swap(itemList, i, i + 1);
+            }
+        } else {
+            for (int i = fromPosition; i > toPosition; i--) {
+                Collections.swap(itemList, i, i - 1);
+            }
+        }
+        notifyItemMoved(fromPosition, toPosition);
+    }
+
 
 
     public void addIngredient(Item ingredient, String key){

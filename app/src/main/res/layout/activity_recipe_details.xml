@@ -47,6 +47,8 @@
                 android:layout_height="50dp"
                 android:layout_gravity="right" />
 
+
+
             <ImageButton
                 android:background="@color/cardview_light_background"
                 android:layout_weight="1"
@@ -57,6 +59,7 @@
                 android:layout_gravity="right" />
 
         </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="wrap_content"

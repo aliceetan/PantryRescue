@@ -1,6 +1,7 @@
 package com.ait.kim.pantryrescue;
 
 import android.content.DialogInterface;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.CollapsingToolbarLayout;
