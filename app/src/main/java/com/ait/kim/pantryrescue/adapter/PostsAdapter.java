@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -24,6 +25,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
     private List<Post> postList;
     private List<String> postKeys;
     private String uId;
+    private int lastPosition = -1;
     private DatabaseReference postsRef;
 
     public PostsAdapter(Context context, String uId){
@@ -49,6 +51,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
         holder.tvBody.setText(post.getBody());
         holder.tvTitle.setText(post.getTitle());
 
+        // if it is my comment
         if(uId.equals(post.getUid())){
             holder.btnDelete.setVisibility(View.VISIBLE);
 
@@ -78,7 +81,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
     public int getItemCount() {
         return postList.size();
     }
-
+//
     public void removePost(int index) {
         postsRef = FirebaseDatabase.getInstance().getReference();
         // ask firebase database under this key to remove this object
