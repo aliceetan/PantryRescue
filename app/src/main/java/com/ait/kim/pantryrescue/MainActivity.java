@@ -2,7 +2,9 @@ package com.ait.kim.pantryrescue;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.annotation.NonNull;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -24,6 +26,8 @@ import android.widget.Toast;
 import com.ait.kim.pantryrescue.adapter.IngredientsRecyclerAdapter;
 import com.ait.kim.pantryrescue.data.Item;
 //import com.ait.kim.pantryrescue.touch.ItemTouchHelperCallback;
+import com.elmargomez.typer.Font;
+import com.elmargomez.typer.Typer;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -91,6 +95,9 @@ public class MainActivity extends AppCompatActivity {
                 drawerLayout.openDrawer(GravityCompat.START);
             }
         });
+        CollapsingToolbarLayout collaspingToolbar = findViewById(R.id.toolbar_layout);
+        collaspingToolbar.setCollapsedTitleTextAppearance(R.style.RobotoBoldTextAppearance);
+        collaspingToolbar.setExpandedTitleTextAppearance(R.style.RobotoBoldTextAppearance);
 
 
         final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -175,6 +182,8 @@ public class MainActivity extends AppCompatActivity {
 
         builder.show();
     }
+
+
 
     private void addToList(String title){
         String newKey = FirebaseDatabase.getInstance().getReference().child("ingredients").push().getKey();
