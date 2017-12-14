@@ -23,7 +23,7 @@ public class PostsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.app_bar_posts);
 
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerItem);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerViewPosts);
         adapter = new PostsAdapter(this, FirebaseAuth.getInstance().getCurrentUser().getUid());
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setReverseLayout(true);

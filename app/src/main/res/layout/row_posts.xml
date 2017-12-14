@@ -29,39 +29,34 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="4"
-            android:orientation="vertical"
-            android:layout_marginBottom="2dp">
+            android:orientation="vertical">
 
             <TextView
-                android:fontFamily="monospace"
                 android:id="@+id/tvAuthor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="blah"
                 android:textColor="#000000"
-                android:textSize="18sp" />
+                android:textSize="13sp" />
 
             <TextView
-                android:fontFamily="monospace"
                 android:id="@+id/tvTitle"
                 style="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="blah"
                 android:textColor="#000000"
-                android:textSize="18sp"
+                android:textSize="13sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:fontFamily="monospace"
                 android:id="@+id/tvBody"
                 style="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="blah"
                 android:textColor="#000000"
-                android:textSize="18sp" />
-
+                android:textSize="13sp" />
             <ImageView
                 android:id="@+id/ivPost"
                 android:visibility="gone"
