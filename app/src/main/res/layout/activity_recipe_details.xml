@@ -70,40 +70,6 @@
 
         </LinearLayout>
 
-<!--=======-->
-<!--&gt;>>>>>> Stashed changes-->
-        <!--<LinearLayout-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:orientation="horizontal">-->
-
-            <!--<TextView-->
-                <!--android:id="@+id/tvUrl"-->
-                <!--android:layout_weight="1"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginRight="4dp"-->
-                <!--android:autoLink="web"-->
-                <!--android:fontFamily="monospace"-->
-                <!--android:text="click here for instructions"-->
-                <!--android:textColor="@color/colorPrimary"-->
-                <!--android:textSize="20dp"-->
-                <!--android:textStyle="italic" />-->
-
-            <!--<ImageButton-->
-                <!--android:layout_marginRight="2dp"-->
-                <!--android:background="@color/cardview_light_background"-->
-                <!--android:layout_weight="1"-->
-                <!--android:id="@+id/btnFav"-->
-                <!--android:src="@drawable/icons8_star_80"-->
-                <!--android:scaleType="fitCenter"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_gravity="right" />-->
-
-
-        <!--</LinearLayout>-->
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
