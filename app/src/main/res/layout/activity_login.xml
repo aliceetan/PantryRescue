@@ -20,8 +20,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Pantry Rescue"
+            android:fontFamily="monospace"
             android:layout_gravity="center_horizontal"
-            android:textSize="35sp"
+            android:textSize="35dp"
             android:paddingBottom="15dp"
             android:textColor="#dc050003"/>
 
