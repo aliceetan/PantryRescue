@@ -22,13 +22,13 @@
             android:maxWidth="50dp"
             android:scaleType="fitCenter"/>
 
-        <EditText
-            android:id="@+id/etTitle"
+        <TextView
+            android:id="@+id/tvTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Title"
-            android:fontFamily="monospace"
-            android:maxLines="1" />
+            android:textSize="20dp"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="monospace" />
 
         <EditText
             android:id="@+id/etBody"

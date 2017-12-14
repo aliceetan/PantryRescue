@@ -13,7 +13,6 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.support.v7.widget.helper.ItemTouchHelper;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,7 +20,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.ait.kim.pantryrescue.adapter.IngredientsRecyclerAdapter;
+import com.ait.kim.pantryrescue.adapter.IngredientsAdapter;
 import com.ait.kim.pantryrescue.data.Item;
 //import com.ait.kim.pantryrescue.touch.ItemTouchHelperCallback;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -33,15 +32,11 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 public class MainActivity extends AppCompatActivity {
 
 
     public static final String ITEM_NAME = "ITEM_NAME";
-    private IngredientsRecyclerAdapter adapter;
+    private IngredientsAdapter adapter;
     private DrawerLayout drawerLayout;
 
     @Override
@@ -107,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void setUpList(){
         RecyclerView recyclerViewItem = (RecyclerView) findViewById(R.id.recyclerItem);
-        adapter = new IngredientsRecyclerAdapter(this, FirebaseAuth.getInstance().getCurrentUser().getUid());
+        adapter = new IngredientsAdapter(this, FirebaseAuth.getInstance().getCurrentUser().getUid());
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setReverseLayout(true);
