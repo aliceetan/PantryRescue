@@ -29,7 +29,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="4"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_margin="2dp">
 
             <TextView
                 android:id="@+id/tvAuthor"
@@ -37,7 +38,8 @@
                 android:layout_height="wrap_content"
                 android:text="blah"
                 android:textColor="#000000"
-                android:textSize="13sp" />
+                android:textSize="18sp"
+                android:fontFamily="monospace"/>
 
             <TextView
                 android:id="@+id/tvTitle"
@@ -46,8 +48,9 @@
                 android:layout_height="wrap_content"
                 android:text="blah"
                 android:textColor="#000000"
-                android:textSize="13sp"
-                android:textStyle="bold" />
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:fontFamily="monospace"/>
 
             <TextView
                 android:id="@+id/tvBody"
@@ -56,7 +59,9 @@
                 android:layout_height="wrap_content"
                 android:text="blah"
                 android:textColor="#000000"
-                android:textSize="13sp" />
+                android:textSize="18sp"
+                android:fontFamily="monospace"/>
+
             <ImageView
                 android:id="@+id/ivPost"
                 android:visibility="gone"
