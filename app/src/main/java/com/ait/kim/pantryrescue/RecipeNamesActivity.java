@@ -61,7 +61,7 @@ public class RecipeNamesActivity extends AppCompatActivity {
                     int size = response.body().getRecipes().size();
                     for(int i =0; i < size; i ++) {
                         TextView recipe = new TextView(RecipeNamesActivity.this);
-                        recipe.setTextSize(17);
+                        recipe.setTextSize(25);
                         recipe.setTextColor(Color.BLACK);
                         recipe.setTypeface(Typeface.create("monospace", Typeface.NORMAL));
                         recipe.setText(response.body().getRecipes().get(i).getTitle());
