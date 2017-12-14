@@ -88,14 +88,11 @@ public class RecipeDetailsActivity extends AppCompatActivity {
                         ((LinearLayout) detailsLayout).addView(tvIngredient);
                         imgUrl = response.body().getRecipe().getImageUrl();
                         Glide.with(RecipeDetailsActivity.this).load(imgUrl).into(ivPic);
-//
-//                        tvUrl.setText(url);
 
                         final String url = response.body().getRecipe().getSourceUrl();
                         tvUrl.setOnClickListener(new View.OnClickListener(){
                             @Override
                             public void onClick(View view) {
-                                //String url = "http://www.stackoverflow.com";
                                 Intent i = new Intent(Intent.ACTION_VIEW);
                                 i.setData(Uri.parse(url));
                                 startActivity(i);
@@ -110,7 +107,7 @@ public class RecipeDetailsActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<GetResult> call, Throwable t) {
                 TextView tvError = new TextView(RecipeDetailsActivity.this);
-                tvError.setText("No ingredients to show");
+                tvError.setText(R.string.no_ingredients);
             }
         });
 
@@ -133,7 +130,6 @@ public class RecipeDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // create a post item and save it to the discussions post
-
                 showCreatePostActivity(title, imgUrl);
 
             }

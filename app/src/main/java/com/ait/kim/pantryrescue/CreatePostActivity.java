@@ -36,10 +36,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-/**
- * Created by kimpham on 12/13/17.
- */
-
 public class CreatePostActivity extends AppCompatActivity {
 
     @BindView(R.id.tvTitle)
@@ -102,12 +98,12 @@ public class CreatePostActivity extends AppCompatActivity {
             if (grantResults.length > 0 &&
                     grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
-                Toast.makeText(this, "Permission granted, jupeee!",
+                Toast.makeText(this, R.string.perm_granted,
                         Toast.LENGTH_SHORT).show();
 
                 btnAttachPic.setVisibility(View.VISIBLE);
             } else {
-                Toast.makeText(this, "Permission not granted :(",
+                Toast.makeText(this, R.string.perm_denied,
                         Toast.LENGTH_SHORT).show();
             }
         }
@@ -128,7 +124,7 @@ public class CreatePostActivity extends AppCompatActivity {
     }
 
     private void uploadPost(String... imageUrl) {
-        String key = FirebaseDatabase.getInstance().getReference().child("posts").push().getKey();
+        String key = FirebaseDatabase.getInstance().getReference().child(getString(R.string.posts)).push().getKey();
         Post newPost = new Post(
                 FirebaseAuth.getInstance().getCurrentUser().getUid(),
                 FirebaseAuth.getInstance().getCurrentUser().getDisplayName(), tvTitle.getText().toString(),
@@ -138,11 +134,10 @@ public class CreatePostActivity extends AppCompatActivity {
             newPost.setImgUrl(imageUrl[0]);
         }
 
-        // add value to proper element of the tree
-        FirebaseDatabase.getInstance().getReference().child("posts").child(key).setValue(newPost).addOnCompleteListener(new OnCompleteListener<Void>() {
+        FirebaseDatabase.getInstance().getReference().child(getString(R.string.posts)).child(key).setValue(newPost).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
-                Toast.makeText(CreatePostActivity.this, "Post created", Toast.LENGTH_SHORT).show();
+                Toast.makeText(CreatePostActivity.this, R.string.post_created, Toast.LENGTH_SHORT).show();
                 finish();
             }
         });
@@ -158,9 +153,9 @@ public class CreatePostActivity extends AppCompatActivity {
         byte[] imageInBytes = baos.toByteArray();
 
         StorageReference storageRef = FirebaseStorage.getInstance().getReference();
-        String newImage = URLEncoder.encode(UUID.randomUUID().toString(), "UTF-8")+".jpg";
+        String newImage = URLEncoder.encode(UUID.randomUUID().toString(), getString(R.string.utf8))+getString(R.string.jpg);
         StorageReference newImageRef = storageRef.child(newImage);
-        StorageReference newImageImagesRef = storageRef.child("images/"+newImage);
+        StorageReference newImageImagesRef = storageRef.child(getString(R.string.images)+newImage);
         newImageRef.getName().equals(newImageImagesRef.getName());    // true
         newImageRef.getPath().equals(newImageImagesRef.getPath());    // false
 
@@ -190,7 +185,7 @@ public class CreatePostActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
         if(requestCode == 101 && resultCode == RESULT_OK){
-            Bitmap img = (Bitmap) data.getExtras().get("data");
+            Bitmap img = (Bitmap) data.getExtras().get(getString(R.string.data));
             imgAttach.setImageBitmap(img);
             imgAttach.setVisibility(View.VISIBLE);
         }

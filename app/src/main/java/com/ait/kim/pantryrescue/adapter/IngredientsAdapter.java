@@ -77,7 +77,7 @@ public class IngredientsAdapter extends RecyclerView.Adapter<IngredientsAdapter.
 
     public void removeItem(int index) {
         ingredientRef = FirebaseDatabase.getInstance().getReference();
-        ingredientRef.child("ingredients").child(ingredientKeys.get(index)).removeValue();
+        ingredientRef.child(context.getString(R.string.ingredients)).child(ingredientKeys.get(index)).removeValue();
         itemList.remove(index);
         ingredientKeys.remove(index);
         notifyItemRemoved(index);
