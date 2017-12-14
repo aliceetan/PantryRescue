@@ -1,6 +1,5 @@
 package com.ait.kim.pantryrescue;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -36,9 +35,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-/**
- * Created by kimpham on 12/13/17.
- */
 
 public class CreatePostActivity extends AppCompatActivity {
 
@@ -103,14 +99,14 @@ public class CreatePostActivity extends AppCompatActivity {
             if (grantResults.length > 0 &&
                     grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
-                Toast.makeText(this, "Permission granted, jupeee!",
+                Toast.makeText(this, R.string.jupeee,
                         Toast.LENGTH_SHORT).show();
 
                 // we have the permission
 
                 btnAttachPic.setVisibility(View.VISIBLE);
             } else {
-                Toast.makeText(this, "Permission not granted :(",
+                Toast.makeText(this, R.string.notjupeee,
                         Toast.LENGTH_SHORT).show();
             }
         }
@@ -145,7 +141,7 @@ public class CreatePostActivity extends AppCompatActivity {
         FirebaseDatabase.getInstance().getReference().child("posts").child(key).setValue(newPost).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
-                Toast.makeText(CreatePostActivity.this, "Post created", Toast.LENGTH_SHORT).show();
+                Toast.makeText(CreatePostActivity.this, R.string.postcreated, Toast.LENGTH_SHORT).show();
                 finish();
             }
         });

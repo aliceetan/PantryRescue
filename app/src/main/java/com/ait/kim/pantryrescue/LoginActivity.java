@@ -6,7 +6,6 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -67,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
                 if (task.isSuccessful()) {
-                    Toast.makeText(LoginActivity.this, "Registration ok", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, R.string.registrationok, Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(LoginActivity.this, "Error: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                 }
@@ -117,7 +116,7 @@ public class LoginActivity extends AppCompatActivity {
     private void showProgressDialog() {
         if (progressDialog == null) {
             progressDialog = new ProgressDialog(this);
-            progressDialog.setMessage("Wait for it...");
+            progressDialog.setMessage(getString(R.string.waitforit));
         }
 
         progressDialog.show();
@@ -125,12 +124,12 @@ public class LoginActivity extends AppCompatActivity {
 
     private boolean isFormValid() {
         if (TextUtils.isEmpty(etEmail.getText())) {
-            etEmail.setError("The email can not be empty");
+            etEmail.setError(getString(R.string.emptyemail));
             return false;
         }
 
         if (TextUtils.isEmpty(etPassword.getText())) {
-            etPassword.setError("The password cannot be empty");
+            etPassword.setError(getString(R.string.emptypassword));
             return false;
         }
 
