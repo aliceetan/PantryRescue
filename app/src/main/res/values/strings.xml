@@ -129,4 +129,5 @@
     <string name="title">title</string>
     <string name="message">message</string>
     <string name="ingredients_colon">Ingredients:</string>
+    <string name="click_for_instr">click here for instructions</string>
 </resources>
