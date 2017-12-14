@@ -30,9 +30,9 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="monospace"
                 android:gravity="center"
-                android:text="List of Recipes Containing Your Ingredients:"
+                android:text="@string/list_recipes"
                 android:textColor="#800000"
-                android:textSize="20dp" />
+                android:textSize="24dp" />
 
 
         </LinearLayout>

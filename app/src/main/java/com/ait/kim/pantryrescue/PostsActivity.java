@@ -36,7 +36,7 @@ public class PostsActivity extends AppCompatActivity {
     }
 
     private void initPostsListener() {
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("posts");
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference(getString(R.string.posts));
         reference.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
