@@ -13,6 +13,7 @@
 
     <TextView
         android:text="@string/welcome"
+        android:textColorHighlight="#000000"
         android:textAlignment="textEnd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

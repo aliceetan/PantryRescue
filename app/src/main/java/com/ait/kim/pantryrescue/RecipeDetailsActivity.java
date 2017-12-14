@@ -53,6 +53,7 @@ public class RecipeDetailsActivity extends AppCompatActivity {
                 .build();
 
         favButton();
+        homeButton();
 
 
         recipeId = getIntent().getStringExtra(RecipeNamesActivity.RECIPE_ID);
@@ -110,6 +111,17 @@ public class RecipeDetailsActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void homeButton() {
+        ImageButton btnFav = findViewById(R.id.btnHome);
+        btnFav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent newIntent = new Intent(RecipeDetailsActivity.this, MainActivity.class);
+                startActivity(newIntent);
+            }
+        });
     }
 
     private void favButton() {

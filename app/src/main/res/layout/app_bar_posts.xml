@@ -9,14 +9,18 @@
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:theme="@style/AppTheme.AppBarOverlay"
+        android:background="#3F51B5">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
             android:background="#3F51B5"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            android:fontFamily="monospace"
+            android:text="Recent Posts"
+            android:textColor="#FFFFFF"
+            android:textSize="20dp" />
 
     </android.support.design.widget.AppBarLayout>
 
