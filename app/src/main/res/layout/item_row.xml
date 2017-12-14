@@ -39,7 +39,7 @@
                 android:layout_marginRight="1dp"
                 android:text="blah"
                 android:textColor="#000000"
-                android:textSize="23sp"
+                android:textSize="20sp"
                 android:fontFamily="monospace"/>
 
         </LinearLayout>

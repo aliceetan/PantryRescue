@@ -92,4 +92,18 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="action_settings">Settings</string>
+    <string name="jupeee">Permission granted, jupeee!</string>
+    <string name="notjupeee">Permission not granted :(</string>
+    <string name="postcreated">Post created</string>
+    <string name="registrationok">Registration ok</string>
+    <string name="waitforit">Wait for it...</string>
+    <string name="emptyemail">The email can not be empty</string>
+    <string name="emptypassword">The password cannot be empty</string>
+    <string name="authors">Made by Alice Tan, Kim Pham, and Sarah Jin</string>
+    <string name="dialogtext">Separate ingredients by comma or enter keyword</string>
+    <string name="inputerror">Input required</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="success">success</string>
+    <string name="listerror">Please check formatting / choose different ingredients</string>
 </resources>
